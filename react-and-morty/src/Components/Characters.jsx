@@ -6,13 +6,19 @@ import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import "../App.css";
 import "./Characters.css";
 
+const bactToTopStyles = {
+  position: "fixed",
+  bottom: "5%",
+  right: "5%",
+  fontSize: "3em",
+  cursor: "pointer"
+};
+
 const Characters = () => {
   const [characterList, setCharacterList] = useState([]);
-
   const [page, setPage] = useState(1);
   const characters = useCharacters(page);
   const [hasScrolled, setHasScrolled] = useState(false);
-  //const [characterShow, setCharacterShow] = useState(false);
 
   useEffect(() => {
     if (characters !== "Loading...") {
@@ -21,9 +27,8 @@ const Characters = () => {
   }, [characters]);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => scrollFunction())
-  }, [])
-  
+    window.addEventListener("scroll", () => scrollFunction());
+  }, []);
 
   const handlePageChange = (event, value) => {
     setPage(value);
@@ -36,7 +41,7 @@ const Characters = () => {
     ) {
       setHasScrolled(true);
     } else {
-      setHasScrolled(false)
+      setHasScrolled(false);
     }
   };
 
@@ -60,9 +65,9 @@ const Characters = () => {
       </div>
       {hasScrolled && (
         <ArrowCircleUpIcon
-          color="primary"
+          color="error"
           onClick={backToTop}
-          className={`back-to-top-btn `}
+          sx={bactToTopStyles}
         />
       )}
     </>
@@ -70,7 +75,4 @@ const Characters = () => {
 };
 
 export default Characters;
-/* ${
-          document.body.scrollTop > 20 ||
-          document.documentElement.scrollTop > 20 ? "not-hidden" : "hidden"
-        } */
+
