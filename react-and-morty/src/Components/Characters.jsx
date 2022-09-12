@@ -8,9 +8,9 @@ import "./Characters.css";
 
 const bactToTopStyles = {
   position: "fixed",
-  bottom: "5%",
-  right: "5%",
-  fontSize: "3em",
+  bottom: "2%",
+  right: "2%",
+  fontSize: "5em",
   cursor: "pointer"
 };
 
@@ -19,10 +19,12 @@ const Characters = () => {
   const [page, setPage] = useState(1);
   const characters = useCharacters(page);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     if (characters !== "Loading...") {
       setCharacterList(characters.results);
+      setLoading(false)
     }
   }, [characters]);
 
@@ -58,6 +60,7 @@ const Characters = () => {
         onChange={handlePageChange}
         pageCount={42}
       />
+      {loading ? "loading" : "mope"}
       <div className="characters-container">
         {characterList.map((character) => (
           <Character character={character} key={character.id} />

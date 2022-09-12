@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MoreInfoModal from "./MoreInfoModal";
+import CharacterInfoModal from "./CharacterInfoModal";
 
 export const MoreCharacterInfo = ({ character }) => {
   return <div className="more-character-info">Character</div>;
@@ -10,7 +10,7 @@ const Character = ({ character }) => {
 
   const showMoreInfo = (e, id) => {
     if (e.target) {
-      setisMoreInfoShown((prevValue) => !prevValue);
+      setisMoreInfoShown(true);
     }
   };
 
@@ -20,11 +20,14 @@ const Character = ({ character }) => {
 
   return (
     <div className="character-card">
-      {isMoreInfoShown &&         <MoreInfoModal character={character} onClose={closeModal}  />}
+      {isMoreInfoShown && (
+        <CharacterInfoModal character={character} onClose={closeModal} modalIsOpenedFromParent={isMoreInfoShown} />
+      )}
       <img
-        className="characters-img"
+        className="character-img"
         src={character.image}
         alt={character.name}
+        onClick={showMoreInfo}
       />
       <h3>{character.name}</h3>
       <h4>{character.species}</h4>
