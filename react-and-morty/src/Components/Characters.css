@@ -10,4 +10,21 @@
 }
 
 .character-img {
+  cursor: pointer;
+}
+
+.back-to-top-btn {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+
+
+}
+
+.hidden{
+  display: none;
+}
+
+.not-hidden{
+  display: block;
 }
