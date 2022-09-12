@@ -1,4 +1,4 @@
-import Typography from '@mui/material/Typography';
+import Typography from "@mui/material/Typography";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
@@ -12,7 +12,7 @@ const CharactersPagination = ({ val, page, onChange, pageCount }) => {
 
   const listStyles = {
     borderRadius: "10px",
-    background: "#faf5b5"
+    /*     background: "#9a69a8" */
   };
 
   return (
@@ -23,6 +23,9 @@ const CharactersPagination = ({ val, page, onChange, pageCount }) => {
         page={page}
         onChange={onChange}
         value={val}
+        siblingCount={1}
+        boundaryCount={2}
+        color="secondary"
         sx={listStyles}
       />
     </Stack>

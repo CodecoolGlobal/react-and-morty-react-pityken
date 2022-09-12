@@ -83,11 +83,6 @@ select {
   cursor: pointer;
 }
 
-.back-to-top-btn {
-  position: fixed;
-  bottom: 5%;
-  right: 5%;
-}
 
 /* Modal-styles */
 
@@ -118,4 +113,23 @@ select {
   height: 2em;
   font-size: 1.2em;
   text-align: center;
+}
+
+
+.back-to-top-btn {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+}
+
+.loader-container {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

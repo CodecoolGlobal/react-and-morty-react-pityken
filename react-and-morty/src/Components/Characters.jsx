@@ -3,6 +3,7 @@ import { useCharacters } from "../api/useData";
 import Character from "./Character";
 import CharactersPagination from "./CharactersPagination";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
+import CircularProgress from "@mui/material/CircularProgress";
 import "../App.css";
 import "./Characters.css";
 
@@ -11,7 +12,7 @@ const bactToTopStyles = {
   bottom: "2%",
   right: "2%",
   fontSize: "5em",
-  cursor: "pointer"
+  cursor: "pointer",
 };
 
 const Characters = () => {
@@ -19,12 +20,12 @@ const Characters = () => {
   const [page, setPage] = useState(1);
   const characters = useCharacters(page);
   const [hasScrolled, setHasScrolled] = useState(false);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (characters !== "Loading...") {
       setCharacterList(characters.results);
-      setLoading(false)
+      setLoading(false);
     }
   }, [characters]);
 
@@ -60,15 +61,20 @@ const Characters = () => {
         onChange={handlePageChange}
         pageCount={42}
       />
-      {loading ? "loading" : "mope"}
-      <div className="characters-container">
-        {characterList.map((character) => (
-          <Character character={character} key={character.id} />
-        ))}
-      </div>
+      {loading ? (
+        <div className="loader-container">
+          <CircularProgress color="secondary" size="5em" />
+        </div>
+      ) : (
+        <div className="characters-container">
+          {characterList.map((character) => (
+            <Character character={character} key={character.id} />
+          ))}
+        </div>
+      )}
       {hasScrolled && (
         <ArrowCircleUpIcon
-          color="error"
+          color="secondary"
           onClick={backToTop}
           sx={bactToTopStyles}
         />
@@ -78,4 +84,3 @@ const Characters = () => {
 };
 
 export default Characters;
-
