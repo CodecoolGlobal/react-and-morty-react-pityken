@@ -11,10 +11,11 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
-  border: "2px solid #191c3c",
+  width: 450,
+  border: "5px solid #9ccc3c",
+  borderRadius: "10px",
   boxShadow: 24,
-  p: 4,
+  p: 2,
   bgcolor: "#b88fb7",
   color: "#191c3c",
 };
@@ -58,6 +59,12 @@ const CharacterInfoModal = ({
                 <th>Gender</th>
                 <td>{character.gender}</td>
               </tr>
+              {character.type !== "" && (
+                <tr>
+                  <th>Type</th>
+                  <td>{character.type}</td>
+                </tr>
+              )}
               <tr>
                 <th>Status</th>
                 <td>{character.status}</td>
@@ -74,11 +81,14 @@ const CharacterInfoModal = ({
                 <th>Type of location</th>
                 <td>{locationOfChar.type}</td>
               </tr>
+              {locationOfChar.dimension !== "unknown" && (
+                <tr>
+                  <th>Dimension of location</th>
+                  <td>{locationOfChar.dimension}</td>
+                </tr>
+              )}
             </tbody>
           </table>
-          {/* <p>Gender: {character.gender}</p>
-          <p>Status: {character.status}</p>
-          <p>Origin: {character.origin.name}</p> */}
         </Box>
       </Modal>
     </div>

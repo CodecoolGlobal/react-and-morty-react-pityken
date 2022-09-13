@@ -7,7 +7,7 @@
 
   background: transparent;
 
-  font-family: inherit;
+  font-family: "Montserrat", sans-serif;
 
   text-decoration: none;
 }
@@ -47,6 +47,12 @@ select {
 
 /* End of CSS reset */
 
+@font-face {
+  font-family: "RickAndMorty";
+  src: url("../get_schwifty.ttf") format("woff"),
+    url("../get_schwifty.ttf") format("truetype");
+}
+
 .characters-container {
   display: flex;
   flex-wrap: wrap;
@@ -62,11 +68,15 @@ select {
   gap: 0.5em;
 
   padding: 1em;
+  border: solid 5px #53c486;
   border-radius: 10px;
+
+  color: #191c3c;
   background-color: #faf074;
 }
 
 .character-card h3 {
+  font-family: RickAndMorty;
   font-size: 1.5em;
   font-weight: 700;
   text-align: center;
@@ -83,17 +93,16 @@ select {
   cursor: pointer;
 }
 
-
 /* Modal-styles */
 
 .character-modal h3 {
-  font-size: 2.5em;
+  font-size: 2.2em;
   font-weight: 700;
   text-align: center;
 }
 
 .character-modal h4 {
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: 600;
   text-align: center;
 }
@@ -115,6 +124,7 @@ select {
   text-align: center;
 }
 
+/* Back-to-top-btn-styles */
 
 .back-to-top {
   position: fixed;
