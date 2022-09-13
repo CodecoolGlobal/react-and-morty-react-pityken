@@ -12,7 +12,7 @@ const CharactersPagination = ({ val, page, onChange, pageCount }) => {
 
   const listStyles = {
     borderRadius: "10px",
-    /*     background: "#9a69a8" */
+    /* background: "#9a69a8" */
   };
 
   return (

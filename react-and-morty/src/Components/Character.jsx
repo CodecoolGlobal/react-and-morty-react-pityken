@@ -8,10 +8,8 @@ export const MoreCharacterInfo = ({ character }) => {
 const Character = ({ character }) => {
   const [isMoreInfoShown, setisMoreInfoShown] = useState(false);
 
-  const showMoreInfo = (e, id) => {
-    if (e.target) {
-      setisMoreInfoShown(true);
-    }
+  const showMoreInfo = () => {
+    setisMoreInfoShown(true);
   };
 
   const closeModal = () => {
@@ -21,7 +19,11 @@ const Character = ({ character }) => {
   return (
     <div className="character-card">
       {isMoreInfoShown && (
-        <CharacterInfoModal character={character} onClose={closeModal} modalIsOpenedFromParent={isMoreInfoShown} />
+        <CharacterInfoModal
+          character={character}
+          onClose={closeModal}
+          modalIsOpenedFromParent={isMoreInfoShown}
+        />
       )}
       <img
         className="character-img"
