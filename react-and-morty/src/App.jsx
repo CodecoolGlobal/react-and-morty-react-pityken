@@ -3,6 +3,7 @@ import "./App.css";
 import { useCharacters, useLocations } from "./api/useData";
 import Header from "./components/Header";
 import Content from "./components/Content";
+import Footer from "./components/Footer";
 import { useState } from "react";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
     <>
       <Header setPage={setPage} />
       <Content page={page} />
+      <Footer />
     </>
   );
 }
