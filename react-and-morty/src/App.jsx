@@ -2,8 +2,11 @@ import React from "react";
 import "./App.css";
 import { useCharacters, useLocations } from "./api/useData";
 import Header from "./components/Header";
+import Content from "./components/Content";
+import { useState } from "react";
 
 function App() {
+  const [page, setPage] = useState("Landing");
   const characters = useCharacters(1);
   const locations = useLocations(1);
 
@@ -14,7 +17,8 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header setPage={setPage} />
+      <Content page={page} />
     </>
   );
 }
