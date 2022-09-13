@@ -21,6 +21,7 @@ const style = {
 
 const CharacterInfoModal = ({
   character,
+  locationOfChar,
   onClose,
   modalIsOpenedFromParent,
 }) => {
@@ -68,6 +69,10 @@ const CharacterInfoModal = ({
               <tr>
                 <th>Location</th>
                 <td>{character.location.name}</td>
+              </tr>
+              <tr>
+                <th>Type of location</th>
+                <td>{locationOfChar.type}</td>
               </tr>
             </tbody>
           </table>
