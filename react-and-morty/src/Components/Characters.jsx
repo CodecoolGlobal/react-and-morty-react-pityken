@@ -4,6 +4,8 @@ import Character from "./Character";
 import CharactersPagination from "./CharactersPagination";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import CircularProgress from "@mui/material/CircularProgress";
+import { CSSTransition } from "react-transition-group";
+
 import "../App.css";
 import "./Characters.css";
 
@@ -72,13 +74,21 @@ const Characters = () => {
           ))}
         </div>
       )}
-      {hasScrolled && (
-        <ArrowCircleUpIcon
-          color="secondary"
-          onClick={backToTop}
-          sx={bactToTopStyles}
-        />
-      )}
+
+        <CSSTransition
+          in={hasScrolled}
+          timeout={500}
+          mountOnEnter
+          unmountOnExit
+          classNames="back-to-top"
+        >
+          <ArrowCircleUpIcon
+            color="secondary"
+            onClick={backToTop}
+            sx={bactToTopStyles}
+          />
+        </CSSTransition>
+      
     </>
   );
 };
