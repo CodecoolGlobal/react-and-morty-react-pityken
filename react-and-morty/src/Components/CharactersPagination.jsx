@@ -7,17 +7,21 @@ const CharactersPagination = ({ val, page, onChange, pageCount }) => {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    margin: "15px",
+    margin: "10px",
+  };
+
+  const pageNumStyles = {
+    fontSize: "0.9em",
+    fontWeight: "700"
   };
 
   const listStyles = {
-    borderRadius: "10px",
-    /* background: "#9a69a8" */
+    margin: "5px !important",
   };
 
   return (
     <Stack spacing={2} sx={containerStyles}>
-      <Typography>Page: {page}</Typography>
+      <Typography sx={pageNumStyles}>Page {page}</Typography>
       <Pagination
         count={pageCount}
         page={page}

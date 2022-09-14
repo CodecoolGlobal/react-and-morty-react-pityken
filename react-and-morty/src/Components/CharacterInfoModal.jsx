@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
-const style = {
+const modalStyles = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -16,8 +17,20 @@ const style = {
   borderRadius: "10px",
   boxShadow: 24,
   p: 2,
+  pt: 5,
   bgcolor: "#b88fb7",
   color: "#191c3c",
+};
+
+const closeBtnStyles = {
+  position: "absolute",
+  top: "1%",
+  right: "2%",
+  width: 40,
+  height: 40,
+  bgcolor: "#b88fb7",
+  color: "#191c3c",
+  cursor: "pointer"
 };
 
 const CharacterInfoModal = ({
@@ -45,7 +58,8 @@ const CharacterInfoModal = ({
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} className="character-modal">
+        <Box sx={modalStyles} className="character-modal">
+          <HighlightOffIcon sx={closeBtnStyles} onClick={handleClose}/>
           <img
             className="character-img"
             src={character.image}
