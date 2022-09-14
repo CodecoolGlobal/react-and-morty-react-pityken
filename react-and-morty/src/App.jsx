@@ -4,8 +4,8 @@ import { Locations } from "./components/Locations";
 
 function App() {
 
-  return <div className="App">Take a look at the console! (F12)
-    {/* <Locations /> */}
+  return <div className="App">
+    <Locations />
   </div>;
 }
 
