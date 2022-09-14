@@ -1,10 +1,9 @@
-import React from "react";
-import "./App.css";
+import React, { useState } from "react";
 import { useCharacters, useLocations } from "./api/useData";
 import Header from "./components/Header";
 import Content from "./components/Content";
 import Footer from "./components/Footer";
-import { useState } from "react";
+import "./App.css";
 
 function App() {
   const [page, setPage] = useState("Landing");

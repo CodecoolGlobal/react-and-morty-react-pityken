@@ -1,0 +1,19 @@
+@font-face {
+    font-family: "RickAndMorty";
+    src: url("./get_schwifty.ttf") format("woff"),
+      url("./get_schwifty.ttf") format("truetype");
+  }
+
+* {
+  font-family: "Montserrat", sans-serif;
+  color: #191c3c;
+}
+
+body {
+  background-color: #faf5b5;
+}
+
+#root {
+  margin: 0 auto;
+  max-width: 95%;
+}

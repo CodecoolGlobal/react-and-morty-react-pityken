@@ -1,18 +1,20 @@
 import Typography from "@mui/material/Typography";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import "../App.css";
 
 const CharactersPagination = ({ val, page, onChange, pageCount }) => {
   const containerStyles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    margin: "10px",
+    margin: "1.3 em",
   };
 
   const pageNumStyles = {
-    fontSize: "0.9em",
-    fontWeight: "700"
+    fontSize: "1.2em",
+    fontWeight: "700",
+    marginTop: "10px"
   };
 
   const listStyles = {
