@@ -16,10 +16,10 @@ function App() {
   console.log(locations);
 
   return (
-    <>
+    <div className="App">
       <Header setPage={setPage} />
       <Content page={page} />
-    </>
+    </div>
   );
 }
 
