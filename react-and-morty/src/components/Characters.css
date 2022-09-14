@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  box-sizing: border-box;
+
+  background: transparent;
+
+  font-family: "Montserrat", sans-serif;
+
+  text-decoration: none;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a img {
+  border: none;
+}
+
+button,
+a {
+  cursor: pointer;
+  color: inherit;
+}
+
+textarea {
+  resize: none;
+}
+
+button,
+select {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  border-radius: 0;
+}
+
+/* End of CSS reset */
+
+@font-face {
+  font-family: "RickAndMorty";
+  src: url("../get_schwifty.ttf") format("woff"),
+    url("../get_schwifty.ttf") format("truetype");
+}
+
+.characters-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1em;
+}
+
+.character-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+
+  padding: 1em;
+  border: solid 5px #53c486;
+  border-radius: 10px;
+
+  color: #191c3c;
+  background-color: #faf074;
+}
+
+.character-card h3 {
+  font-family: RickAndMorty;
+  font-size: 1.5em;
+  font-weight: 700;
+  text-align: center;
+}
+
+.character-card h4 {
+  font-size: 1.2em;
+  font-weight: 500;
+  text-align: center;
+}
+
+.character-img {
+  width: 250px;
+  cursor: pointer;
+}
+
+/* Modal-styles */
+
+.character-modal h3 {
+  font-size: 2.2em;
+  font-weight: 700;
+  text-align: center;
+}
+
+.character-modal h4 {
+  font-size: 1.3em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.character-modal .character-img {
+  width: 300px;
+  cursor: default;
+}
+
+.character-modal-table {
+  width: 100%;
+}
+
+.character-modal-table th,
+.character-modal-table td {
+  width: 50%;
+  height: 2em;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+/* Back-to-top-btn-styles */
+
+.back-to-top {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+}
+
+.back-to-top-enter {
+  opacity: 0;
+  scale: 1;
+}
+
+.back-to-top-enter-active {
+  opacity: 1;
+  scale: 1.5;
+  transition: all 500ms;
+}
+
+.back-to-top-exit {
+  opacity: 1;
+}
+
+.back-to-top-exit-active {
+  opacity: 0;
+  transition: all 500ms;
+}
+
+.loader-container {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
