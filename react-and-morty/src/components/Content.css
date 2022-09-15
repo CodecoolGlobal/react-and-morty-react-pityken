@@ -1,8 +1,17 @@
 .content {
-    background-color: #97d1d1;
+  background-color: #191c3c;
 }
 
 .landingText {
-    padding: 3em;
-    text-align: justify;
+  width: 100%;
+  margin: 0 auto;
+  padding: 3em;
+  text-align: justify;
+  color: #53c486;
+}
+
+@media screen and (min-width: 900px) {
+  .landingText {
+    width: 75%;
+  }
 }

@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
@@ -8,17 +9,22 @@ const CharactersPagination = ({ val, page, onChange, pageCount }) => {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    margin: "1.3 em",
+    width: "fit-content",
+    margin: "1.3em auto",
   };
 
   const pageNumStyles = {
     fontSize: "1.2em",
     fontWeight: "700",
-    marginTop: "10px"
+    marginTop: "10px",
+    color: "#9a69a8",
   };
 
   const listStyles = {
     margin: "5px !important",
+    padding: "5px",
+    borderRadius: "10px",
+    background: "#faf5b5",
   };
 
   return (

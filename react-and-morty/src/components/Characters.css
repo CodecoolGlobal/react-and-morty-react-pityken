@@ -65,11 +65,11 @@ select {
   gap: 0.5em;
 
   padding: 1em;
-  border: solid 5px #9a69a8;
+  border: solid 5px #faf5b5;
   border-radius: 10px;
 
   color: #191c3c;
-  background-color: #b88fb7;
+  background-color: #faf074;
 }
 
 .character-card h3 {
