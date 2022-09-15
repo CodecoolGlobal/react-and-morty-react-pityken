@@ -49,7 +49,6 @@ export const LocationInfoModal = ({
         setOpen(false);
         onClose();
     };
-
     return (
         <div>
             <Modal
@@ -58,32 +57,48 @@ export const LocationInfoModal = ({
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={modalStyles} className="location-modal">
+                <Box sx={modalStyles} className="location-modal" >
                     <HighlightOffIcon sx={closeBtnStyles} onClick={handleClose} />
                     <h3>{location.name}</h3>
-                    <h4>{location.type}</h4>
-                    <table className="character-modal-table">
-                        <tbody>
-                            <tr>
-                                <th>Dimension</th>
-                                <td>{location.dimension}</td>
-                            </tr>
-                            {location.type !== "" && (
+                    <div className="location-details">
+
+                        <table className="character-modal-table">
+                            <tbody>
                                 <tr>
-                                    <th>Type</th>
-                                    <td>{location.type}</td>
+                                    <th>Dimension</th>
+                                    <td>{location.dimension}</td>
                                 </tr>
-                            )}
-                            {location.residents !== [] &&
-                                <tr>
-                                    <th>Residents</th>
-                                    <td>{residents}</td>
-                                </tr>}
-                        </tbody>
-                    </table>
+                                {location.type !== "" && (
+                                    <tr>
+                                        <th>Type</th>
+                                        <td>{location.type}</td>
+                                    </tr>
+                                )}
+                                {location.residents.length === 1 && (
+                                    <tr>
+                                        <th>Residents</th>
+                                        {residents.map(resident => (
+                                            <td key={resident.id}>{resident.name}</td>
+                                        ))}
+                                    </tr>)}
+
+                                {location.residents.length > 1 && (
+                                    <>
+                                        <th>Residents</th>
+                                        {residents.map(resident => (<tr key={resident.id}>
+                                            <th></th>
+                                            <td>{resident.name}</td>
+                                        </tr>
+                                        ))}
+                                    </>
+                                )}
+
+                            </tbody>
+                        </table>
+                    </div>
                 </Box>
             </Modal>
-        </div>
+        </div >
     );
 };
 

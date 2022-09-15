@@ -12,6 +12,16 @@
     text-decoration: none;
 }
 
+.location-details {
+    max-height: 800px;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.location-details::-webkit-scrollbar {
+    display: none;
+}
+
 ol,
 ul,
 li {
@@ -20,8 +30,8 @@ li {
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+    border-collapse: separate;
+    border-spacing: 10px;
 }
 
 a img {
@@ -48,7 +58,7 @@ select {
 /* End of CSS reset */
 
 
-.characters-container {
+.locations-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -58,7 +68,7 @@ select {
     padding: 1em 0;
 }
 
-.character-card {
+.location-card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,81 +82,53 @@ select {
     background-color: #b88fb7;
 }
 
-.character-card h3 {
+.location-card h3 {
     font-family: RickAndMorty;
     font-size: 1.5em;
     font-weight: 700;
     text-align: center;
 }
 
-.character-card h4 {
+.location-card h4 {
     font-size: 1.2em;
     font-weight: 500;
     text-align: center;
 }
 
-.character-img {
+.location-img {
     width: 250px;
     cursor: pointer;
 }
 
 /* Modal-styles */
 
-.character-modal h3 {
+.location-modal h3 {
     font-size: 2.2em;
     font-weight: 700;
     text-align: center;
 }
 
-.character-modal h4 {
+.location-modal h4 {
     font-size: 1.3em;
     font-weight: 600;
     text-align: center;
 }
 
-.character-modal .character-img {
+.location-modal .location-img {
     width: 300px;
     cursor: default;
 }
 
-.character-modal-table {
+.location-modal-table {
     width: 100%;
 }
 
-.character-modal-table th,
-.character-modal-table td {
+.location-modal-table th,
+.location-modal-table td {
     width: 50%;
     height: 2em;
     font-size: 1.2em;
     text-align: center;
-}
-
-/* Back-to-top-btn-styles */
-
-.back-to-top {
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
-}
-
-.back-to-top-enter {
-    opacity: 0;
-    scale: 1;
-}
-
-.back-to-top-enter-active {
-    opacity: 1;
-    scale: 1.5;
-    transition: all 500ms;
-}
-
-.back-to-top-exit {
-    opacity: 1;
-}
-
-.back-to-top-exit-active {
-    opacity: 0;
-    transition: all 500ms;
 }
 
 .loader-container {

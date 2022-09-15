@@ -6,7 +6,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import "../App.css";
 import "./Locations.css";
 
-export const Locations = () => {
+const Locations = () => {
     const [LocationList, setLocationList] = useState([]);
     const [page, setPage] = useState(1);
     const locations = useLocations(page);
@@ -48,5 +48,6 @@ export const Locations = () => {
             )}
         </>
     )
-
 }
+
+export default Locations

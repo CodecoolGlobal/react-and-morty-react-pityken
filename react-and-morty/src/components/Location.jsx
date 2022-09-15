@@ -6,18 +6,17 @@ import "./Locations.css";
 export const Location = ({ location }) => {
     const [isMoreInfoShown, setisMoreInfoShown] = useState(false);
     const [isModalLoading, setIsModalLoading] = useState(false);
-    const [characterData, setCharacterData] = useState([]);
+    const [residentData, setResidentData] = useState([]);
 
     const fetchCharacterInfo = async (url) => {
         setIsModalLoading(true);
         try {
             const response = await fetch(url);
             const fetchedCharacterInfo = await response.json();
-
             if (!response.ok) {
                 throw new Error(fetchedCharacterInfo.message);
             }
-            setCharacterData(fetchedCharacterInfo);
+
             setIsModalLoading(false);
             return fetchedCharacterInfo;
         } catch (err) {
@@ -27,11 +26,10 @@ export const Location = ({ location }) => {
         }
     };
 
-    const showMoreInfo = async (characterList) => {
-        const fetchedCharacterInfo = await characterList.forEach(resident => {
-            fetchCharacterInfo(resident)
-        });
-        console.log(fetchedCharacterInfo);
+    const showMoreInfo = async (characterUrl) => {
+        const fetchedCharacterInfo = await characterUrl.map(url => fetchCharacterInfo(url))
+        const residentsInfo = Promise.all(fetchedCharacterInfo)
+        setResidentData(await residentsInfo)
         setisMoreInfoShown(true);
     };
 
@@ -40,7 +38,7 @@ export const Location = ({ location }) => {
     };
 
     return (
-        <div className="location-card">
+        <div className="location-card" >
             {isMoreInfoShown &&
                 (isModalLoading ? (
                     <div className="loader-container">
@@ -48,15 +46,16 @@ export const Location = ({ location }) => {
                     </div>
                 ) : (
                     <LocationInfoModal
+
                         location={location}
-                        locationOfChar={characterData}
+                        residents={residentData}
                         onClose={closeModal}
                         modalIsOpenedFromParent={isMoreInfoShown}
-                        onClick={() => showMoreInfo(location.residents)}
+
                     />
                 ))}
-            <h3>{location.name}</h3>
-            <h4>{location.type}</h4>
+            <h3 onClick={() => showMoreInfo(location.residents)}>{location.name}</h3>
+            <br></br>
         </div>
     );
 };
