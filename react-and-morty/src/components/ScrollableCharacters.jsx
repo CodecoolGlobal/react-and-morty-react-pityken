@@ -53,8 +53,10 @@ const ScrollableCharacters = () => {
       setHasScrolled(false);
     }
 
+    // console.log(window.innerHeight + document.documentElement.scrollTop)
+    // console.log(document.documentElement.offsetHeight)
     if (
-      window.innerHeight + document.documentElement.scrollTop >=
+      window.innerHeight + document.documentElement.scrollTop + 1 >=
       document.documentElement.offsetHeight
     ) {
       console.log("Fetch more characters");

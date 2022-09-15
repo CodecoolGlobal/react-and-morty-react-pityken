@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ScrollableCharacters from "./ScrollableCharacters";
 import Characters from "./Characters";
 import Locations from "./Locations";
+import CharacterToggler from "./CharacterToggler";
 
 import './Content.css';
 
 
 export default function Content(props) {
+
     const landing =
         <div className='landingText'>
             I'd like to order one large phone with extra phones please. cell phone, no no no rotary... and payphone on half. Well let me check my list of powers and weaknesses: ability to do anything, but only whenever I want. Yeah, that sounds like a job for me. Prepare to be emancipated from your own inferior genes! There's a lesson here and I'm not going to be the one to figure it out. <br />
@@ -18,11 +20,18 @@ export default function Content(props) {
             Nice one, Ms Pancakes. Did you just come into the cafeteria through a portal? Yo! What up my glip glops! Not MY fault this is happening.
         </div>
 
-    const characters = <ScrollableCharacters />
+    const [isScrollable, setIsScrollable] = useState(false)
+    const characters = isScrollable ? <ScrollableCharacters /> : <Characters /> 
 
     const locations = <Locations />
-
     let content;
+
+    useEffect(() => {
+      if (props.page === "Locations") {
+        setIsScrollable(false)
+      }
+    }, [props.page])
+    
 
     switch (props.page) {
         case "Characters":
@@ -36,7 +45,14 @@ export default function Content(props) {
             break;
     }
 
+    const changeCharacters = (newAlignment) => { 
+        newAlignment === "paginated" ? setIsScrollable(false) : setIsScrollable(true)
+     }
+
     return (
-        <div className='content'>{content}</div>
+        <div className='content'>
+            {props.page === "Characters" && <CharacterToggler onChange={(newAlignment) => changeCharacters(newAlignment)} />}
+            {content}
+        </div>
     );
 }
