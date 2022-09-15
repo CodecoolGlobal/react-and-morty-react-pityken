@@ -1,25 +1,25 @@
 import React, { useState } from "react";
-// import LocationInfoModal from "./LocationInfoModal";
+import { LocationInfoModal } from "./LocationInfoModal";
 import CircularProgress from "@mui/material/CircularProgress";
-// import "./Locationss.css";
+import "./Locations.css";
 
 export const Location = ({ location }) => {
     const [isMoreInfoShown, setisMoreInfoShown] = useState(false);
     const [isModalLoading, setIsModalLoading] = useState(false);
-    const [charLocationData, setCharLocationData] = useState([]);
+    const [characterData, setCharacterData] = useState([]);
 
-    const fetchLocationInfo = async (url) => {
+    const fetchCharacterInfo = async (url) => {
         setIsModalLoading(true);
         try {
             const response = await fetch(url);
-            const fetchedLocationInfo = await response.json();
+            const fetchedCharacterInfo = await response.json();
 
             if (!response.ok) {
-                throw new Error(fetchedLocationInfo.message);
+                throw new Error(fetchedCharacterInfo.message);
             }
-            setCharLocationData(fetchedLocationInfo);
+            setCharacterData(fetchedCharacterInfo);
             setIsModalLoading(false);
-            return fetchedLocationInfo;
+            return fetchedCharacterInfo;
         } catch (err) {
             console.log(err);
             setIsModalLoading(false);
@@ -27,9 +27,11 @@ export const Location = ({ location }) => {
         }
     };
 
-    const showMoreInfo = async (locationUrl) => {
-        const fetchedLocationInfo = await fetchLocationInfo(locationUrl);
-        console.log(fetchedLocationInfo);
+    const showMoreInfo = async (characterList) => {
+        const fetchedCharacterInfo = await characterList.forEach(resident => {
+            fetchCharacterInfo(resident)
+        });
+        console.log(fetchedCharacterInfo);
         setisMoreInfoShown(true);
     };
 
@@ -45,13 +47,13 @@ export const Location = ({ location }) => {
                         <CircularProgress color="secondary" size="5em" />
                     </div>
                 ) : (
-                    // <LocationInfoModal
-                    //     location={location}
-                    //     locationOfChar={charLocationData}
-                    //     onClose={closeModal}
-                    //     modalIsOpenedFromParent={isMoreInfoShown}
-                    // />
-                    null
+                    <LocationInfoModal
+                        location={location}
+                        locationOfChar={characterData}
+                        onClose={closeModal}
+                        modalIsOpenedFromParent={isMoreInfoShown}
+                        onClick={() => showMoreInfo(location.residents)}
+                    />
                 ))}
             <h3>{location.name}</h3>
             <h4>{location.type}</h4>

@@ -35,7 +35,7 @@ const closeBtnStyles = {
 
 export const LocationInfoModal = ({
     location,
-    locationOfChar,
+    residents,
     onClose,
     modalIsOpenedFromParent,
 }) => {
@@ -58,49 +58,27 @@ export const LocationInfoModal = ({
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={modalStyles} className="character-modal">
+                <Box sx={modalStyles} className="location-modal">
                     <HighlightOffIcon sx={closeBtnStyles} onClick={handleClose} />
-                    <img
-                        className="character-img"
-                        src={character.image}
-                        alt={character.name}
-                    />
-                    <h3>{character.name}</h3>
-                    <h4>{character.species}</h4>
+                    <h3>{location.name}</h3>
+                    <h4>{location.type}</h4>
                     <table className="character-modal-table">
                         <tbody>
                             <tr>
-                                <th>Gender</th>
-                                <td>{character.gender}</td>
+                                <th>Dimension</th>
+                                <td>{location.dimension}</td>
                             </tr>
-                            {character.type !== "" && (
+                            {location.type !== "" && (
                                 <tr>
                                     <th>Type</th>
-                                    <td>{character.type}</td>
+                                    <td>{location.type}</td>
                                 </tr>
                             )}
-                            <tr>
-                                <th>Status</th>
-                                <td>{character.status}</td>
-                            </tr>
-                            <tr>
-                                <th>Origin</th>
-                                <td>{character.origin.name}</td>
-                            </tr>
-                            <tr>
-                                <th>Location</th>
-                                <td>{character.location.name}</td>
-                            </tr>
-                            <tr>
-                                <th>Type of location</th>
-                                <td>{locationOfChar.type}</td>
-                            </tr>
-                            {locationOfChar.dimension !== "unknown" && (
+                            {location.residents !== [] &&
                                 <tr>
-                                    <th>Dimension of location</th>
-                                    <td>{locationOfChar.dimension}</td>
-                                </tr>
-                            )}
+                                    <th>Residents</th>
+                                    <td>{residents}</td>
+                                </tr>}
                         </tbody>
                     </table>
                 </Box>

@@ -4,7 +4,7 @@ import { LocationsPagination } from './LocationsPagination'
 import { Location } from './Location'
 import CircularProgress from "@mui/material/CircularProgress";
 import "../App.css";
-// import "./Locations.css";
+import "./Locations.css";
 
 export const Locations = () => {
     const [LocationList, setLocationList] = useState([]);
