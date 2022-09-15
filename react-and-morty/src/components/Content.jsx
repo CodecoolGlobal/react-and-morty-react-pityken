@@ -1,6 +1,10 @@
 import React from 'react';
 import ScrollableCharacters from "./ScrollableCharacters";
+import Characters from "./Characters";
+import Locations from "./Locations";
+
 import './Content.css';
+
 
 export default function Content(props) {
     const landing =
@@ -16,7 +20,7 @@ export default function Content(props) {
 
     const characters = <ScrollableCharacters />
 
-    const locations = <div>Locations</div>
+    const locations = <Locations />
 
     let content;
 
