@@ -16,7 +16,7 @@ const bactToTopStyles = {
   cursor: "pointer",
 };
 
-const Characters = () => {
+const ScrollableCharacters = () => {
   const [page, setPage] = useState(1);
   const characters = useCharacters(page);
   const [characterList, setCharacterList] = useState([]);
@@ -110,4 +110,4 @@ const Characters = () => {
   );
 };
 
-export default Characters;
+export default ScrollableCharacters;

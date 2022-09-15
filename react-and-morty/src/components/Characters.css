@@ -93,19 +93,19 @@ select {
 /* Modal-styles */
 
 .character-modal h3 {
-  font-size: 2.2em;
+  font-size: 1.8em;
   font-weight: 700;
   text-align: center;
 }
 
 .character-modal h4 {
-  font-size: 1.3em;
+  font-size: 1em;
   font-weight: 600;
   text-align: center;
 }
 
 .character-modal .character-img {
-  width: 300px;
+  width: 200px;
   cursor: default;
 }
 
@@ -116,11 +116,30 @@ select {
 .character-modal-table th,
 .character-modal-table td {
   width: 50%;
-  height: 2em;
-  font-size: 1.2em;
+  height: 1em;
+  font-size: 0.8em;
   text-align: center;
 }
 
+@media screen and (min-height: 780px) {
+  .character-modal h3 {
+    font-size: 2.2em;
+  }
+  
+  .character-modal h4 {
+    font-size: 1.3em;
+  }
+  
+  .character-modal .character-img {
+    width: 300px;
+  }
+  
+  .character-modal-table th,
+  .character-modal-table td {
+    height: 2em;
+    font-size: 1.2em;
+  }
+}
 /* Back-to-top-btn-styles */
 
 .back-to-top {
