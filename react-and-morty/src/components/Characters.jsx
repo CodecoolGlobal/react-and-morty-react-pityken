@@ -23,11 +23,15 @@ const Characters = () => {
   const characters = useCharacters(page);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [pageCount, setPageCount] = useState(0)
 
   useEffect(() => {
     if (characters !== "Loading...") {
       setCharacterList(characters.results);
       setLoading(false);
+    }
+    if (characters.info) {
+      setPageCount(characters.info.pages)
     }
   }, [characters]);
 
@@ -61,7 +65,7 @@ const Characters = () => {
         val={page}
         page={page}
         onChange={handlePageChange}
-        pageCount={42}
+        pageCount={pageCount}
       />
       {loading ? (
         <div className="loader-container">
@@ -75,20 +79,20 @@ const Characters = () => {
         </div>
       )}
 
-        <CSSTransition
-          in={hasScrolled}
-          timeout={500}
-          mountOnEnter
-          unmountOnExit
-          classNames="back-to-top"
-        >
-          <ArrowCircleUpIcon
-            color="secondary"
-            onClick={backToTop}
-            sx={bactToTopStyles}
-          />
-        </CSSTransition>
-      
+      <CSSTransition
+        in={hasScrolled}
+        timeout={500}
+        mountOnEnter
+        unmountOnExit
+        classNames="back-to-top"
+      >
+        <ArrowCircleUpIcon
+          color="secondary"
+          onClick={backToTop}
+          sx={bactToTopStyles}
+        />
+      </CSSTransition>
+
     </>
   );
 };

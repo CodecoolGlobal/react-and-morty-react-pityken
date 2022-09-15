@@ -15,7 +15,7 @@ export default function Header(props) {
     return (
         <header>
             <div className="imgContainer">
-                <img src="../../header_image.png" alt="Rick and Morty logo" />
+                <img src="../../header_image.png" alt="Rick and Morty logo" onClick={() => { setPage("Landing") }} />
             </div>
             <div className="buttons">
                 <Button text="Characters" showContent={showCharacters} />
