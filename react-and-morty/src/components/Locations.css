@@ -58,7 +58,7 @@ select {
 /* End of CSS reset */
 
 
-.locations-container {
+.location-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
