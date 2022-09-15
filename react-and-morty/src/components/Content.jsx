@@ -1,6 +1,8 @@
 import React from 'react';
+import ScrollableCharacters from "./ScrollableCharacters";
 import Characters from "./Characters";
 import Locations from "./Locations";
+
 import './Content.css';
 
 
@@ -16,7 +18,7 @@ export default function Content(props) {
             Nice one, Ms Pancakes. Did you just come into the cafeteria through a portal? Yo! What up my glip glops! Not MY fault this is happening.
         </div>
 
-    const characters = <Characters />
+    const characters = <ScrollableCharacters />
 
     const locations = <Locations />
 

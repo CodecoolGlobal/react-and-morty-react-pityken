@@ -12,7 +12,7 @@ const modalStyles = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 450,
+  minWidth: "fit-content",
   border: "5px solid #9ccc3c",
   borderRadius: "10px",
   boxShadow: 24,
@@ -28,7 +28,6 @@ const closeBtnStyles = {
   right: "2%",
   width: 40,
   height: 40,
-  bgcolor: "#b88fb7",
   color: "#191c3c",
   cursor: "pointer"
 };
