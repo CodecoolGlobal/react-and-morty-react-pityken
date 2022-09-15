@@ -6,14 +6,18 @@
 
 * {
   font-family: "Montserrat", sans-serif;
-  color: #191c3c;
 }
 
 body {
-  background-color: #faf5b5;
+  background-color: #191c3c;
 }
 
 #root {
   margin: 0 auto;
   max-width: 95%;
+}
+
+.App {
+  position: relative;
+  min-height: 100vh;
 }

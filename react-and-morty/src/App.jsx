@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useCharacters, useLocations } from "./api/useData";
 import Header from "./components/Header";
 import Content from "./components/Content";
 import Footer from "./components/Footer";
@@ -6,6 +7,14 @@ import "./App.css";
 
 function App() {
   const [page, setPage] = useState("Landing");
+  const characters = useCharacters(1);
+  const locations = useLocations(1);
+
+  console.log("Characters data: ");
+  console.log(characters);
+  console.log("Locations data: ");
+  console.log(locations);
+
   return (
     <div className="App">
       <Header setPage={setPage} />
