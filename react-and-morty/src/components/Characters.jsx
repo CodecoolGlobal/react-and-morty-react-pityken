@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useCharacters } from "../api/useData";
 import Character from "./Character";
-import CharactersPagination from "./CharactersPagination";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import CircularProgress from "@mui/material/CircularProgress";
 import { CSSTransition } from "react-transition-group";
- 
+
 import "../App.css";
 import "./Characters.css";
-import { useFetch } from "../api/useFetch";
- 
+
 const bactToTopStyles = {
   position: "fixed",
   bottom: "2%",
@@ -17,7 +15,7 @@ const bactToTopStyles = {
   fontSize: "5em",
   cursor: "pointer",
 };
- 
+
 const Characters = () => {
   const [page, setPage] = useState(1);
   const characters = useCharacters(page);
@@ -25,63 +23,57 @@ const Characters = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isFetching, setIsFetching] = useState(false);
-  const [allCharacters, setAllCharacters] = useState([])
- 
+  const [allCharacters, setAllCharacters] = useState([]);
+
   useEffect(() => {
     if (characters !== "Loading...") {
       setCharacterList(characters.results);
       setLoading(false);
-      setAllCharacters(prevState => prevState.concat(characters.results));
+      setAllCharacters((prevState) => prevState.concat(characters.results));
     }
   }, [characters]);
- 
-  useEffect(() => {    
+
+  useEffect(() => {
     window.addEventListener("scroll", () => scrollFunction());
     return () => window.removeEventListener("scroll", scrollFunction);
   }, []);
- 
-  const handlePageChange = (event, value) => {
-    setPage(value);
-  };
- 
+  
+    useEffect(() => {
+      if (!isFetching) return;
+      fetchMoreCharacters();
+    }, [isFetching]);
+
+
   const scrollFunction = () => {
-/*     if (
+    if (
       document.body.scrollTop > 20 ||
       document.documentElement.scrollTop > 20
     ) {
       setHasScrolled(true);
     } else {
       setHasScrolled(false);
-    } */
- 
+    }
+
     if (
-      window.innerHeight + document.documentElement.scrollTop !==
+      window.innerHeight + document.documentElement.scrollTop >=
       document.documentElement.offsetHeight
-    )
-      return;
-    console.log("Fetch more list items!");
-    setIsFetching(true);
+    ) {
+      console.log("Fetch more list items!");
+      setIsFetching(true);
+    }
+    return;
   };
- 
-  function fetchMoreListItems() {
-    setPage(prev => prev + 1)
- 
-    setTimeout(() => {
-      //setAllCharacters(prevState => prevState.concat(characters.results));
-      setIsFetching(false);
-    }, 2000);
+
+  const fetchMoreCharacters = () => {
+    setPage((prev) => prev + 1);
+    setIsFetching(false);
   }
- 
-  useEffect(() => {
-    if (!isFetching) return;
-    fetchMoreListItems();
-  }, [isFetching]);
- 
+
   const backToTop = () => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   };
- 
+
   return (
     <>
       {loading ? (
@@ -90,12 +82,17 @@ const Characters = () => {
         </div>
       ) : (
         <div className="characters-container">
-          {characterList.map((character) => (
+          {allCharacters.map((character) => (
             <Character character={character} key={character.id} />
           ))}
         </div>
       )}
- 
+      {isFetching && (
+        <div className="content-loading">
+          <CircularProgress color="secondary" size="5em" />
+          <p>Fetching more characters...</p>
+        </div>
+      )}
       <CSSTransition
         in={hasScrolled}
         timeout={500}
@@ -112,5 +109,5 @@ const Characters = () => {
     </>
   );
 };
- 
+
 export default Characters;
