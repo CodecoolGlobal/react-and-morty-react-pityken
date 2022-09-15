@@ -37,12 +37,11 @@ const ScrollableCharacters = () => {
     window.addEventListener("scroll", () => scrollFunction());
     return () => window.removeEventListener("scroll", scrollFunction);
   }, []);
-  
-    useEffect(() => {
-      if (!isFetching) return;
-      fetchMoreCharacters();
-    }, [isFetching]);
 
+  useEffect(() => {
+    if (!isFetching ) return;
+    fetchMoreCharacters();
+  }, [isFetching]);
 
   const scrollFunction = () => {
     if (
@@ -60,14 +59,16 @@ const ScrollableCharacters = () => {
     ) {
       console.log("Fetch more characters");
       setIsFetching(true);
+
     }
     return;
   };
 
   const fetchMoreCharacters = () => {
-    setPage((prev) => prev + 1);
     setIsFetching(false);
-  }
+    if ( page >= 42) return;
+    setPage((prev) => prev + 1);
+  };
 
   const backToTop = () => {
     document.body.scrollTop = 0;
