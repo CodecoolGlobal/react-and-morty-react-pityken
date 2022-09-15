@@ -58,7 +58,7 @@ const Characters = () => {
       window.innerHeight + document.documentElement.scrollTop >=
       document.documentElement.offsetHeight
     ) {
-      console.log("Fetch more list items!");
+      console.log("Fetch more characters");
       setIsFetching(true);
     }
     return;
