@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useCharacters } from "../api/useData";
 import Character from "./Character";
-import CharactersPagination from "./CharactersPagination";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import CircularProgress from "@mui/material/CircularProgress";
 import { CSSTransition } from "react-transition-group";
+import ContentPagination from "./ContentPagination";
 
 import "../App.css";
 import "./Characters.css";
@@ -61,7 +61,7 @@ const Characters = () => {
 
   return (
     <>
-      <CharactersPagination
+      <ContentPagination
         val={page}
         page={page}
         onChange={handlePageChange}

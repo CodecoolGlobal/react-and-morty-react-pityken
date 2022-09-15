@@ -3,7 +3,7 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import "../App.css";
 
-const CharactersPagination = ({ val, page, onChange, pageCount }) => {
+const ContentPagination = ({ val, page, onChange, pageCount }) => {
   const containerStyles = {
     display: "flex",
     flexDirection: "column",
@@ -43,4 +43,4 @@ const CharactersPagination = ({ val, page, onChange, pageCount }) => {
   );
 };
 
-export default CharactersPagination;
+export default ContentPagination;

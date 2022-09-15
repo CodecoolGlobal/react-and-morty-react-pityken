@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useLocations } from "../api/useData";
-import { LocationsPagination } from './LocationsPagination'
 import { Location } from './Location'
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import CircularProgress from "@mui/material/CircularProgress";
 import { CSSTransition } from "react-transition-group";
+import ContentPagination from './ContentPagination';
 
 import "../App.css";
 import "./Locations.css";
@@ -61,7 +61,7 @@ const Locations = () => {
 
     return (
         <>
-            <LocationsPagination
+            <ContentPagination
                 val={page}
                 page={page}
                 onChange={handlePageChange}
