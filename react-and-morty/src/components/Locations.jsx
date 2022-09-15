@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import CircularProgress from "@mui/material/CircularProgress";
-import { LocationsPagination } from './LocationsPagination'
 import { useLocations } from "../api/useData";
-
+import { LocationsPagination } from './LocationsPagination'
+import { Location } from './Location'
+import CircularProgress from "@mui/material/CircularProgress";
+import "../App.css";
+// import "./Locations.css";
 
 export const Locations = () => {
     const [LocationList, setLocationList] = useState([]);
@@ -39,9 +41,9 @@ export const Locations = () => {
                 </div>
             ) : (
                 <div className="location-container">
-                    {/* {LocationList.map((location) => (
+                    {LocationList.map((location) => (
                         <Location location={location} key={location.id} />
-                    ))} */}
+                    ))}
                 </div>
             )}
         </>
