@@ -3,27 +3,22 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import "../App.css";
 
-const CharactersPagination = ({ val, page, onChange, pageCount }) => {
+export const LocationsPagination = ({ val, page, onChange, pageCount }) => {
   const containerStyles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    width: "fit-content",
-    margin: "1.3em auto",
+    margin: "1.3 em",
   };
 
   const pageNumStyles = {
     fontSize: "1.2em",
     fontWeight: "700",
-    marginTop: "10px",
-    color: "#9a69a8",
+    marginTop: "10px"
   };
 
   const listStyles = {
     margin: "5px !important",
-    padding: "5px",
-    borderRadius: "10px",
-    background: "#faf5b5",
   };
 
   return (
@@ -43,4 +38,3 @@ const CharactersPagination = ({ val, page, onChange, pageCount }) => {
   );
 };
 
-export default CharactersPagination;

@@ -1,8 +1,8 @@
 @font-face {
-    font-family: "RickAndMorty";
-    src: url("./get_schwifty.ttf") format("woff"),
-      url("./get_schwifty.ttf") format("truetype");
-  }
+  font-family: "RickAndMorty";
+  src: url("./get_schwifty.ttf") format("woff"),
+    url("./get_schwifty.ttf") format("truetype");
+}
 
 * {
   font-family: "Montserrat", sans-serif;
