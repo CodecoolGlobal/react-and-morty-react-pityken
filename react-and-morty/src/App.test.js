@@ -57,12 +57,12 @@ test('Click on gthe locations button renders the characters page', async () => {
   }
 
   const { getByText, findByText } = render(<App />);
-  const charactersButton = getByText(/locations/i);
+  const locationsButton = getByText(/locations/i);
 
-  await userEvent.click(charactersButton);
+  await userEvent.click(locationsButton);
 
-  cardInTheDocument(/Earth (C-137)/i);
-  cardInTheDocument(/Earth (Replacement Dimension)/i)
+  cardInTheDocument("Earth (C-137)");
+  cardInTheDocument("Earth (Replacement Dimension)");
 
 });
 
@@ -74,15 +74,15 @@ test('Clicking on a location card shows more information.', async () => {
     baseElement: document.body
   });
   document.body.appendChild(root);
-  const charactersButton = screen.getByText(/characters/i);
+  const locationsButton = screen.getByText(/locations/i);
 
-  await userEvent.click(charactersButton);
+  await userEvent.click(locationsButton);
 
 
-  const text = await screen.findByText(/Earth (C-137)/i);
+  const text = await screen.findByText("Earth (C-137)");
 
   await userEvent.click(text);
-  const modal = await screen.findByText(/dimension/i);
+  const modal = await screen.findByText("Dimension");
 
   expect(modal).toBeInTheDocument();
 
