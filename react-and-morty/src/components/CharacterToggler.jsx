@@ -11,6 +11,7 @@ const CharacterToggler = ({onChange}) => {
     background: "#fff",
   }
 
+
   const handleChange = (event, newAlignment) => {
     setAlignment(newAlignment);
     onChange(newAlignment)
@@ -18,7 +19,7 @@ const CharacterToggler = ({onChange}) => {
 
   return (
     <ToggleButtonGroup
-      color="warning"
+      color="secondary"
       value={alignment}
       exclusive
       onChange={handleChange}

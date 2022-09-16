@@ -80,6 +80,7 @@ select {
 
     color: #191c3c;
     background-color: #b88fb7;
+    cursor: pointer;
 }
 
 .location-card h3 {

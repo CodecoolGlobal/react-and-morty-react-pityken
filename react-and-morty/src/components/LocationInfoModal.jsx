@@ -13,6 +13,7 @@ const modalStyles = {
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: 450,
+    maxHeight: "90%",
     border: "5px solid #9ccc3c",
     borderRadius: "10px",
     boxShadow: 24,
